@@ -146,6 +146,16 @@ public class ObjetivoFinanceiro
     {
         Console.WriteLine($"Objetivo {Titulo}, Valor: {ValorObjetivo}, com Saldo: R${Saldo}");
     }
+    
+    
 }
+
+public class ObjetivoFinanceiroComPrazo : ObjetivoFinanceiro
+{
+    public ObjetivoFinanceiroComPrazo(string titulo, decimal valorObjetivo) : base(titulo, valorObjetivo)
+    {
+    }
+}
+
 
 
