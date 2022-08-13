@@ -2,7 +2,16 @@
 
 Console.WriteLine("-----PoupaDev-----");
 
-var objetivos = new List<ObjetivoFinanceiro>();
+var objetivos = new List<ObjetivoFinanceiro>
+{
+    new ObjetivoFinanceiro("Viagem a Israel", 45000),
+    new  ObjetivoFinanceiroComPrazo(new DateTime(2023,10,1), "Viagem a Inglaterra BikeTour", 40000),
+};
+
+foreach (var objetivo in objetivos)
+{
+    objetivo.ImprimirResumo();
+}
 
 ExibirMenu();
 var opcao = Console.ReadLine();
@@ -142,7 +151,7 @@ public class ObjetivoFinanceiro
     }
 
 
-    public void ImprimirResumo()
+    public virtual void ImprimirResumo()
     {
         Console.WriteLine($"Objetivo {Titulo}, Valor: {ValorObjetivo}, com Saldo: R${Saldo}");
     }
@@ -152,8 +161,21 @@ public class ObjetivoFinanceiro
 
 public class ObjetivoFinanceiroComPrazo : ObjetivoFinanceiro
 {
-    public ObjetivoFinanceiroComPrazo(string titulo, decimal valorObjetivo) : base(titulo, valorObjetivo)
+    public ObjetivoFinanceiroComPrazo(DateTime prazo, string titulo, decimal valorObjetivo) : base(titulo, valorObjetivo)
     {
+        Prazo = prazo;
+    }
+
+    public DateTime Prazo { get; private set; }
+
+    public override void ImprimirResumo()
+    {
+        base.ImprimirResumo();
+
+        var diasRestantes = (Prazo - DateTime.Now).TotalDays;
+        var valorRestante = ValorObjetivo - Saldo;
+
+        Console.WriteLine($"Faltam {diasRestantes} para o prazo do objetivo, e faltam R${valorRestante} para o objetivo ser concluído");
     }
 }
 
