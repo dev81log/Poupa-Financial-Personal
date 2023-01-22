@@ -1,5 +1,5 @@
 ![Asher_Duarte_This_is_a_C_console_application_that_simulates_a_p_7c4d94fd-52b0-4498-98c9-9307a80035a2 (1)](https://user-images.githubusercontent.com/105469529/213919186-c18c7e8d-ac8a-481d-97d2-050c7596b08b.png)
-# PoupaDev Financial Personal
+# Poupa Financial Personal
 This is a C# console application that simulates a personal finance manager, it allows the user to create financial goals, make deposits and withdrawals, and view the details of the goals.
 
 ## Functionality
